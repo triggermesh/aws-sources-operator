@@ -13,31 +13,31 @@ metadata:
           "spec": {
             "adapters": {
               "awscodecommit": {
-                "image": "registry.connect.redhat.com/triggermesh/awscodecommitsource:v0.5.0"
+                "image": "registry.connect.redhat.com/triggermesh/awscodecommitsource:v0.4.2"
               },
               "awscognitoidentity": {
-                "image": "registry.connect.redhat.com/triggermesh/awscognitoidentitysource:v0.5.0"
+                "image": "registry.connect.redhat.com/triggermesh/awscognitoidentitysource:v0.4.2"
               },
               "awscognitouserpool": {
-                "image": "registry.connect.redhat.com/triggermesh/awscognitouserpoolsource:v0.5.0"
+                "image": "registry.connect.redhat.com/triggermesh/awscognitouserpoolsource:v0.4.2"
               },
               "awsdynamodb": {
-                "image": "registry.connect.redhat.com/triggermesh/awsdynamodbsource:v0.5.0"
+                "image": "registry.connect.redhat.com/triggermesh/awsdynamodbsource:v0.4.2"
               },
               "awskinesis": {
-                "image": "registry.connect.redhat.com/triggermesh/awskinesissource:v0.5.0"
+                "image": "registry.connect.redhat.com/triggermesh/awskinesissource:v0.4.2"
               },
               "awssns": {
-                "image": "registry.connect.redhat.com/triggermesh/awssnssource:v0.5.0"
+                "image": "registry.connect.redhat.com/triggermesh/awssnssource:v0.4.2"
               },
               "awssqs": {
-                "image": "registry.connect.redhat.com/triggermesh/awssqssource:v0.5.0"
+                "image": "registry.connect.redhat.com/triggermesh/awssqssource:v0.4.2"
               }
             },
             "affinity": {},
             "fullnameOverride": "",
             "image": {
-              "image": "registry.connect.redhat.com/triggermesh/aws-event-sources-controller:v0.5.0",
+              "image": "registry.connect.redhat.com/triggermesh/aws-event-sources-controller:v0.4.2",
               "pullPolicy": "IfNotPresent"
             },
             "imagePullSecrets": [],
@@ -71,7 +71,7 @@ metadata:
     description: AWS Sources controller for Kubernetes
     repository: https://github.com/triggermesh/aws-event-sources
     support: TriggerMesh Inc.
-  name: aws-sources-operator.v0.2.0
+  name: aws-sources-operator.v0.1.0
   namespace: openshift-operators
 spec:
   apiservicedefinitions: {}
@@ -226,21 +226,21 @@ spec:
                 - name: OPERATOR_NAME
                   value: aws-sources-operator
                 - name: AWS_EVENT_SOURCES_CONTROLLER_IMAGE
-                  value: registry.connect.redhat.com/triggermesh/aws-event-sources-controller:v0.5.0
+                  value: registry.connect.redhat.com/triggermesh/aws-event-sources-controller:v0.4.2
                 - name: AWSCODECOMMIT_ADAPTER_IMAGE
-                  value: registry.connect.redhat.com/triggermesh/awscodecommitsource:v0.5.0
+                  value: registry.connect.redhat.com/triggermesh/awscodecommitsource:v0.4.2
                 - name: AWSCOGNITOIDENTITY_ADAPTER_IMAGE
-                  value: registry.connect.redhat.com/triggermesh/awscognitoidentitysource:v0.5.0
+                  value: registry.connect.redhat.com/triggermesh/awscognitoidentitysource:v0.4.2
                 - name: AWSCOGNITOUSERPOOL_ADAPTER_IMAGE
-                  value: registry.connect.redhat.com/triggermesh/awscognitouserpoolsource:v0.5.0
+                  value: registry.connect.redhat.com/triggermesh/awscognitouserpoolsource:v0.4.2
                 - name: AWSDYNAMODB_ADAPTER_IMAGE
-                  value: registry.connect.redhat.com/triggermesh/awsdynamodbsource:v0.5.0
+                  value: registry.connect.redhat.com/triggermesh/awsdynamodbsource:v0.4.2
                 - name: AWSKINESIS_ADAPTER_IMAGE
-                  value: registry.connect.redhat.com/triggermesh/awskinesissource:v0.5.0
+                  value: registry.connect.redhat.com/triggermesh/awskinesissource:v0.4.2
                 - name: AWSSNS_ADAPTER_IMAGE
-                  value: registry.connect.redhat.com/triggermesh/awssnssource:v0.5.0
+                  value: registry.connect.redhat.com/triggermesh/awssnssource:v0.4.2
                 - name: AWSSQS_ADAPTER_IMAGE
-                  value: registry.connect.redhat.com/triggermesh/awssqssource:v0.5.0
+                  value: registry.connect.redhat.com/triggermesh/awssqssource:v0.4.2
                 image: registry.connect.redhat.com/triggermesh/aws-event-sources-operator:v0.1.0
                 imagePullPolicy: Always
                 name: aws-sources-operator
@@ -270,6 +270,4 @@ spec:
   maturity: alpha
   provider:
     name: TriggerMesh Inc.
-  skips:
-    - aws-sources-operator.v0.1.0
-  version: 0.2.0
+  version: 0.1.0
