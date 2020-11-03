@@ -1,7 +1,7 @@
 apiVersion: sources.triggermesh.com/v1alpha1
 kind: AwsEventSources
 metadata:
-  name: example-awseventsources
+  name: awseventsources
 spec:
   # Default values copied from <project_dir>/helm-charts/aws-event-sources/values.yaml
 

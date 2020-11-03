@@ -5,7 +5,6 @@ metadata:
 subjects:
 - kind: ServiceAccount
   name: aws-sources-operator
-  namespace: openshift-operators
 roleRef:
   kind: ClusterRole
   name: aws-sources-operator
