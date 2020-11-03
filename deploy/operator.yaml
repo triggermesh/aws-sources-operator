@@ -15,7 +15,7 @@ spec:
       serviceAccountName: aws-sources-operator
       containers:
         - name: aws-sources-operator
-          image: registry.connect.redhat.com/triggermesh/aws-event-sources-operator:v0.2.0
+          image: registry.connect.redhat.com/triggermesh/aws-event-sources-operator:v0.1.0
           imagePullPolicy: Always
           env:
             - name: WATCH_NAMESPACE
