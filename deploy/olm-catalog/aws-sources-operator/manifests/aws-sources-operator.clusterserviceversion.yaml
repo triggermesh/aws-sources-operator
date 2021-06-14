@@ -62,6 +62,231 @@ metadata:
             },
             "tolerations": []
           }
+        },
+        {
+          "apiVersion": "sources.triggermesh.io/v1alpha1",
+          "kind": "AWSCodeCommitSource",
+          "metadata": {
+            "name": "my-codecommit-source"
+          },
+          "spec": {
+            "arn": "",
+            "branch": "master",
+            "credentials": {
+              "accessKeyID": {
+                "valueFromSecret": {
+                  "key": "aws_access_key_id",
+                  "name": "awscreds"
+                }
+              },
+              "secretAccessKey": {
+                "valueFromSecret": {
+                  "key": "aws_secret_access_key",
+                  "name": "awscreds"
+                }
+              }
+            },
+            "eventTypes": [
+              "push",
+              "pull_request"
+            ],
+            "sink": {
+              "ref": {
+                "apiVersion": "eventing.knative.dev/v1beta1",
+                "kind": "Broker",
+                "name": "default"
+              }
+            }
+          }
+        },
+        {
+          "apiVersion": "sources.triggermesh.io/v1alpha1",
+          "kind": "AWSCognitoIdentitySource",
+          "metadata": {
+            "name": "my-cognitoidentity-source"
+          },
+          "spec": {
+            "arn": "",
+            "credentials": {
+              "accessKeyID": {
+                "valueFromSecret": {
+                  "key": "aws_access_key_id",
+                  "name": "awscreds"
+                }
+              },
+              "secretAccessKey": {
+                "valueFromSecret": {
+                  "key": "aws_secret_access_key",
+                  "name": "awscreds"
+                }
+              }
+            },
+            "sink": {
+              "ref": {
+                "apiVersion": "eventing.knative.dev/v1beta1",
+                "kind": "Broker",
+                "name": "default"
+              }
+            }
+          }
+        },
+        {
+          "apiVersion": "sources.triggermesh.io/v1alpha1",
+          "kind": "AWSCognitoUserPoolSource",
+          "metadata": {
+            "name": "my-cognitouserpool-source"
+          },
+          "spec": {
+            "arn": "",
+            "credentials": {
+              "accessKeyID": {
+                "valueFromSecret": {
+                  "key": "aws_access_key_id",
+                  "name": "awscreds"
+                }
+              },
+              "secretAccessKey": {
+                "valueFromSecret": {
+                  "key": "aws_secret_access_key",
+                  "name": "awscreds"
+                }
+              }
+            },
+            "sink": {
+              "ref": {
+                "apiVersion": "eventing.knative.dev/v1beta1",
+                "kind": "Broker",
+                "name": "default"
+              }
+            }
+          }
+        },
+        {
+          "apiVersion": "sources.triggermesh.io/v1alpha1",
+          "kind": "AWSDynamoDBSource",
+          "metadata": {
+            "name": "my-dynamodb-source"
+          },
+          "spec": {
+            "arn": "",
+            "credentials": {
+              "accessKeyID": {
+                "valueFromSecret": {
+                  "key": "aws_access_key_id",
+                  "name": "awscreds"
+                }
+              },
+              "secretAccessKey": {
+                "valueFromSecret": {
+                  "key": "aws_secret_access_key",
+                  "name": "awscreds"
+                }
+              }
+            },
+            "sink": {
+              "ref": {
+                "apiVersion": "eventing.knative.dev/v1beta1",
+                "kind": "Broker",
+                "name": "default"
+              }
+            }
+          }
+        },
+        {
+          "apiVersion": "sources.triggermesh.io/v1alpha1",
+          "kind": "AWSKinesisSource",
+          "metadata": {
+            "name": "my-kinesis-source"
+          },
+          "spec": {
+            "arn": "",
+            "credentials": {
+              "accessKeyID": {
+                "valueFromSecret": {
+                  "key": "aws_access_key_id",
+                  "name": "awscreds"
+                }
+              },
+              "secretAccessKey": {
+                "valueFromSecret": {
+                  "key": "aws_secret_access_key",
+                  "name": "awscreds"
+                }
+              }
+            },
+            "sink": {
+              "ref": {
+                "apiVersion": "eventing.knative.dev/v1beta1",
+                "kind": "Broker",
+                "name": "default"
+              }
+            }
+          }
+        },
+        {
+          "apiVersion": "sources.triggermesh.io/v1alpha1",
+          "kind": "AWSSQSSource",
+          "metadata": {
+            "name": "my-sqs-source"
+          },
+          "spec": {
+            "arn": "",
+            "credentials": {
+              "accessKeyID": {
+                "valueFromSecret": {
+                  "key": "aws_access_key_id",
+                  "name": "awscreds"
+                }
+              },
+              "secretAccessKey": {
+                "valueFromSecret": {
+                  "key": "aws_secret_access_key",
+                  "name": "awscreds"
+                }
+              }
+            },
+            "sink": {
+              "ref": {
+                "apiVersion": "eventing.knative.dev/v1beta1",
+                "kind": "Broker",
+                "name": "default"
+              }
+            }
+          }
+        },
+        {
+          "apiVersion": "sources.triggermesh.io/v1alpha1",
+          "kind": "AWSSNSSource",
+          "metadata": {
+            "name": "my-sns-source"
+          },
+          "spec": {
+            "arn": "",
+            "credentials": {
+              "accessKeyID": {
+                "valueFromSecret": {
+                  "key": "aws_access_key_id",
+                  "name": "awscreds"
+                }
+              },
+              "secretAccessKey": {
+                "valueFromSecret": {
+                  "key": "aws_secret_access_key",
+                  "name": "awscreds"
+                }
+              }
+            },
+            "sink": {
+              "ref": {
+                "apiVersion": "eventing.knative.dev/v1beta1",
+                "kind": "Broker",
+                "name": "default"
+              }
+            },
+            "subscriptionAttributes": {
+              "DeliveryPolicy": "{\n  \"healthyRetryPolicy\": {\n    \"numRetries\": 5\n  }\n}\n"
+            }
+          }
         }
       ]
     capabilities: Basic Install
@@ -83,6 +308,41 @@ spec:
       displayName: AwsEventSources
       kind: AwsEventSources
       name: awseventsources.sources.triggermesh.com
+      version: v1alpha1
+    - description: Represents a AWSCodeCommitSource
+      displayName: AWSCodeCommitSources
+      kind: AWSCodeCommitSource
+      name: awscodecommitsources.sources.triggermesh.io
+      version: v1alpha1
+    - description: Represents a AWSCognitoIdentitySource
+      displayName: AWSCognitoIdentitySources
+      kind: AWSCognitoIdentitySource
+      name: awscognitoidentitysources.sources.triggermesh.io
+      version: v1alpha1
+    - description: Represents a AWSUserPoolSource
+      displayName: AWSUserPoolSources
+      kind: AWSUserPoolSource
+      name: awscognitouserpoolsources.sources.triggermesh.io
+      version: v1alpha1
+    - description: Represents a AWSDynamoDBSource
+      displayName: AWSDynamoDBSources
+      kind: AWSDynamoDBSource
+      name: awsdynamodbsources.sources.triggermesh.io
+      version: v1alpha1
+    - description: Represents a AWSKinesisSource
+      displayName: AWSKinesisSources
+      kind: AWSKinesisSource
+      name: awskinesissources.sources.triggermesh.io
+      version: v1alpha1
+    - description: Represents a AWSSNSSource
+      displayName: AWSSNSSources
+      kind: AWSSNSSource
+      name: awssnssources.sources.triggermesh.io
+      version: v1alpha1
+    - description: Represents a AWSSQSSource
+      displayName: AWSSQSSources
+      kind: AWSSQSSource
+      name: awssqssources.sources.triggermesh.io
       version: v1alpha1
   description: |
     The TriggerMesh AWS Sources operator provides a collection of API's that enables to consume events that happen in your AWS services and send them to containers, microservices and functions running in your cluster.
